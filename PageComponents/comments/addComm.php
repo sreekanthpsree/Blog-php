@@ -10,8 +10,13 @@ if (isset($_POST) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $id = $_GET['id'];
     echo $_POST['email'];
+
+
+    //Checking input validation
+
     $validateUserInput = new ValidateInputField($_POST, "http://localhost/Project/pages/postDetailed.php?id=$id");
     $validateUserInput->validateInput();
+
 
     $postId = $_GET['id'];
     $commentManage->addComments($_POST['name'], $_POST['email'], $_POST['comment'], $postId);

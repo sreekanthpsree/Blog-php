@@ -26,7 +26,6 @@
 
 <body class="bg-warning-subtle">
     <?php require_once "../Project/PageComponents/Header/navbar.php" ?>
-
     <div class="d-flex bg-warning-subtle m-5">
         <div class="blog">
             <?php require_once "../Project/PageComponents/blog/blog.php" ?>

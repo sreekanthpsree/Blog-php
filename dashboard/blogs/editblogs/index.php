@@ -17,8 +17,9 @@
     $blog = $blogs->getPostById($_GET['id']);
     session_start();
 
+    //Checking for errors in input fields and setting errors to input
+    
     if (isset($_SESSION['errorArray'])) {
-        echo "11";
         $errorArray = $_SESSION['errorArray'];
         unset($_SESSION['errorArray']);
     }
