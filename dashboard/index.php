@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="container mt-5">
         <div>
             <?php require_once "../PageComponents/Header/navbar.php" ?>
         </div>
@@ -23,13 +23,17 @@
             <h1 class="m-3">Dashboard</h1>
         </div>
         <div class="grid position-absolute start-50 translate-middle" style="margin-top: 200px;">
-
             <button onclick="window.location.href='/Project/Dashboard/blogs/'" type="button"
                 class="m-2 p-2 g-col-6 btn btn-secondary">Blogs</button>
             <button onclick="window.location.href= '/Project/Dashboard/categories/'" type="button"
                 class="m-2 btn btn-secondary p-2 g-col-6">Categories</button>
             <button type="button" class="m-2 btn btn-secondary p-2 g-col-6"
-                onclick="window.location.href='/Project/Dashboard/comments'"><a>Comments</a></button>
+                onclick="window.location.href='/Project/Dashboard/comments'"><a>Comments
+                    <span class="badge text-bg-danger">
+                        <h3>
+                            4</h3>
+                    </span>
+                </a></button>
             <button type="button" class="m-2 btn btn-secondary p-2 g-col-6"
                 onclick="window.location.href='/Project/Dashboard/users/'"><a>Users</a></button>
 

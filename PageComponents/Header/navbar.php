@@ -24,7 +24,7 @@
   }
   ?>
   <div class="shadow p-3 rounded-4">
-    <nav class="shadow  rounded-3 navbar navbar-expand-lg navbar-light bg-warning bg-gradient">
+    <nav class="shadow rounded-3 navbar fixed-top p-3 navbar-expand-lg navbar-light bg-warning bg-gradient">
       <div class="container-fluid">
         <a class="navbar-brand" href="/Project">
           <!-- <img src="/Project/logo/logo.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top" /> -->

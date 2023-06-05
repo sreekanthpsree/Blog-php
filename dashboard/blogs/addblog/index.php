@@ -10,21 +10,28 @@
     <?php
     require_once "../../../config/BlogManage.php";
     require_once "../../../config/ValidateUserInput.php";
+    require_once "../../../config/CategoryManage.php";
+    $categories = new CategoryManage();
+    $category = $categories->getActiveCategotires();
+
     session_start();
     $addBlog = new BlogManage();
     if ($_POST) {
         $validateInput = new ValidateInputField($_POST, "/Project/Dashboard/blogs/addBlog?error=Invalidinput");
         $validateInput->validateInput();
-        print_r($_POST);
-        print_r($_FILES);
+
+
+
         $filename = $_FILES["image"]["name"];
         $tempname = $_FILES["image"]["tmp_name"];
+
+        //Moving files to uploads folder 
+    
         $folder = "../../../uploads/" . $filename;
         $addBlog->addBlog($_POST['title'], $_POST['content'], $_POST['category'], $filename);
         if (move_uploaded_file($tempname, $folder)) {
             echo "<h3>  Image uploaded successfully!</h3>";
         } else {
-            echo "ashda";
             echo "<h3>  Failed to upload image!</h3>";
         }
         unset($_SESSION['errorArray']);
@@ -32,19 +39,20 @@
         header("Location:/Project/Dashboard/blogs/");
         exit();
     }
+
+    //Checking if there any error values and setting values to array
     if (isset($_SESSION['errorArray'])) {
         $errorArray = $_SESSION['errorArray'];
         unset($_SESSION['errorArray']);
     }
-    if (isset($_SESSION['valueArray'])) {
 
+    //Checking for any values filled with error
+    
+    if (isset($_SESSION['valueArray'])) {
         $valueArray = $_SESSION['valueArray'];
         unset($_SESSION['valueArray']);
-
     }
-    require_once "../../../config/CategoryManage.php";
-    $categories = new CategoryManage();
-    $category = $categories->getActiveCategotires();
+
     ?>
 </head>
 

@@ -9,6 +9,9 @@
     <?php
     require_once "../../../config/CategoryManage.php";
     session_start();
+
+    // Will exit if the user is not admin
+    
     if ($_SESSION['position'] !== "Admin" || isset($_SESSION['Username']) || isset($_SESSION['position'])) {
         header("Location:/Project/Dashboard/?error=NoAccess");
         exit();
@@ -17,9 +20,7 @@
     $categoryId = $_GET['id'];
     $category = $categories->getCategoryById($categoryId);
     if (isset($_SESSION['errorArray'])) {
-
         $errorArray = $_SESSION['errorArray'];
-        print_r($errorArray);
         unset($_SESSION['errorArray']);
     }
     if (isset($_SESSION['valueArray'])) {
